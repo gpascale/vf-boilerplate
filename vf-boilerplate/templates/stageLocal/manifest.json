@@ -1,0 +1,11 @@
+{
+  "name": "Stage Local - ##PROJECT_NAME##",
+  "version": "1.0",
+  "description": "This extension redirects requests for ##PROJECT_NAME##.js and ##PROJECT_NAME##.css to your local machine, enabling you to edit and test JS and CSS without deploying to the server. Files are placed in /files in this extension's folder as part of the build process (stageLocal task)",
+  "permissions": ["management", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*"],
+  "background": {
+    "scripts": ["redirect.js"]
+  },
+  "manifest_version": 2,
+  "web_accessible_resources": ["files/*"]
+}

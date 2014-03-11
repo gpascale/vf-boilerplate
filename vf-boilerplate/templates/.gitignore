@@ -1,0 +1,13 @@
+TAGS
+\#*
+.\#*
+.DS_Store
+*~
+*.orig
+.emacs*
+.projectile
+build/
+*.sublime*
+stageLocal/files
+node_modules/grunt/
+node_modules/grunt-ant-sfdc/tmp/
