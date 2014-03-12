@@ -79,6 +79,12 @@ module.exports = function(grunt) {
                 separator: '\n})();\n;(function() { "use strict";\n',
                 footer: '\n})();\n'
             }
+        },
+        extJs: {
+            src: [ 
+                'resources/js/*.js' 
+            ],
+            dest: 'build/intermediates/staticresources/js/##PROJECT_NAME##.external.js'
         }
     });
 
@@ -187,10 +193,10 @@ module.exports = function(grunt) {
         grunt.task.run('antdeploy:foo');
     });
     var profiles = {
-        example: {
-            user: '<your email address>',
-            pass: '<your password>',
-            serverurl: '<your org url e.g. https://test.salesforce.com>'
+        greg: {
+            user: 'gpascale@clip.sbx',
+            pass: 'qaz12345',
+            serverurl: 'https://test.salesforce.com'
         },
     };
 

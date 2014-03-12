@@ -31,7 +31,7 @@ sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
-cp ./templates/forcetkdetails.js
+cp ./templates/extJs/*.js ./resources/js/
 # TODO copy over the models
 
 echo "Setting up dependencies from NPM..."
