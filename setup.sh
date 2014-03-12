@@ -12,18 +12,26 @@ mkdir ./src/js
 mkdir ./src/less
 mkdir ./src/apex
 mkdir ./src/apex/pages
+mkdir ./src/apex/classes
+mkdir ./src/apex/objects
+mkdir ./src/apex/layouts
+mkdir ./src/apex/triggers
+mkdir ./src/apex/components
 mkdir ./stageLocal
 mkdir ./apexBuildTemplates
+mkdir ./resources
+mkdir ./resources/js
 
 echo "Copying code, markup and CSS boilerplate..."
 repl="s/##PROJECT_NAME##/${PROJECT_NAME}/g"
 sed -e $repl ./templates/package.json > ./package.json
 sed -e $repl ./templates/Gruntfile.js > ./Gruntfile.js
 sed -e $repl ./templates/.gitignore > ./.gitignore
-sed -e $repl ./templates/app.page > ./src/apex/pages/app.page
+sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
+cp ./templates/forcetkdetails.js
 # TODO copy over the models
 
 echo "Setting up dependencies from NPM..."
@@ -32,7 +40,7 @@ npm install
 echo "Removing stuff you don't want..."
 rm -rf .git
 rm -rf templates
-rm README.md
+echo "Welcome to $1. This is an empty README" > README.md
 rm setup.sh
 
 echo "Initializing new git project..."
