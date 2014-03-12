@@ -3,7 +3,7 @@
     <script>
         window.Clipforce = window.Clipforce || {};
         window.Clipforce.config = {
-            resourceUrl: '{!URLFOR($##PROJECT_NAME##.zip)}'
+            resourceUrl: '{!URLFOR(##PROJECT_NAME##.zip)}'
         };
     </script>
 

@@ -116,11 +116,11 @@ module.exports = function(grunt) {
     /*************************************************************************/
     grunt.registerTask('meta', function() {
         var templatesByType = {
-            classes: 'buildTemplates/class-meta.tmpl',
-            components: 'buildTemplates/component-meta.tmpl',
-            pages: 'buildTemplates/page-meta.tmpl',
-            staticresources: 'buildTemplates/resource-meta.tmpl',
-            triggers: 'buildTemplates/trigger-meta.tmpl'
+            classes: 'apexBuildTemplates/class-meta.tmpl',
+            components: 'apexBuildTemplates/component-meta.tmpl',
+            pages: 'apexBuildTemplates/page-meta.tmpl',
+            staticresources: 'apexBuildTemplates/resource-meta.tmpl',
+            triggers: 'apexBuildTemplates/trigger-meta.tmpl'
         };
         for (var type in templatesByType) {
             var dir = 'build/package/' + type;
@@ -187,10 +187,10 @@ module.exports = function(grunt) {
         grunt.task.run('antdeploy:foo');
     });
     var profiles = {
-        greg: {
-            user: 'johndoe@salesforce.com',
-            pass: 'password',
-            serverurl: 'https://test.salesforce.com'
+        example: {
+            user: '<your email address>',
+            pass: '<your password>',
+            serverurl: '<your org url e.g. https://test.salesforce.com>'
         },
     };
 

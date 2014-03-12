@@ -13,6 +13,7 @@ mkdir ./src/less
 mkdir ./src/apex
 mkdir ./src/apex/pages
 mkdir ./stageLocal
+mkdir ./apexBuildTemplates
 
 echo "Copying code, markup and CSS boilerplate..."
 repl="s/##PROJECT_NAME##/${PROJECT_NAME}/g"
@@ -22,6 +23,7 @@ sed -e $repl ./templates/.gitignore > ./.gitignore
 sed -e $repl ./templates/app.page > ./src/apex/pages/app.page
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
+cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
 # TODO copy over the models
 
 echo "Setting up dependencies from NPM..."
