@@ -1,5 +1,6 @@
 <apex:page >
 
+    <apex:includeScript value="{!URLFOR($Resource.##PROJECT_NAME##, '/js/##PROJECT_NAME##.external.js')}" />
     <apex:includeScript value="{!URLFOR($Resource.##PROJECT_NAME##, '/js/##PROJECT_NAME##.js')}" />
     <apex:stylesheet value="{!URLFOR($Resource.##PROJECT_NAME##, '/css/##PROJECT_NAME##.css')}" />
     <c:ForceTkClient></c:ForceTkClient>

@@ -30,6 +30,7 @@ sed -e $repl ./templates/.gitignore > ./.gitignore
 sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
+sed -e $repl ./templates/forcetkclient.component > ./src/apex/components/forcetkclient.component
 cp ./templates/HelloWorld.js ./src/js/
 cp ./templates/HelloWorld.less ./src/less/
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/

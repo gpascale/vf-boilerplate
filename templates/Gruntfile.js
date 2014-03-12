@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         staticresources: {
             expand: true,
             cwd: 'resources',
-            src: '**',
+            src: 'images/**/*',
             dest: 'build/intermediates/staticresources'
         },
         other: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     grunt.config('less', {
         all: {
             files: {
-                'build/intermediates/staticresources/css/##PROJECT_NAME##.css': 'src/less/client/*.less',
+                'build/intermediates/staticresources/css/##PROJECT_NAME##.css': 'src/less/*.less',
             }   
         },
         options: {
@@ -82,6 +82,11 @@ module.exports = function(grunt) {
         },
         extJs: {
             src: [ 
+                'resources/js/jquery-1.10.2.js',
+                'resources/js/underscore.js',
+                'resources/js/backbone.js',
+                'resources/js/backbone.marionette.min.js',
+                'resources/js/forcetkdetails.js',
                 'resources/js/*.js' 
             ],
             dest: 'build/intermediates/staticresources/js/##PROJECT_NAME##.external.js'
@@ -190,7 +195,7 @@ module.exports = function(grunt) {
         grunt.task.run('antdeploy:foo');
     });
     var profiles = {
-        exmample: {
+        example: {
             user: 'YOUR EMAIL',
             pass: 'YOUR PASSWORD',
             serverurl: 'YOUR ORG - e.g. https://test.salesforce.com'

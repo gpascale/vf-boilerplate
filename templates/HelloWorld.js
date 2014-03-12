@@ -1,2 +1,3 @@
-
-$('#container').append('<div class="helloWorld">Hello World</div>');
+$(document).ready(function() {
+    $('#container').append('<div class="helloWorld">Hello, World!</div>');
+});
