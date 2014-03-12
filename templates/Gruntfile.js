@@ -151,9 +151,6 @@ module.exports = function(grunt) {
     /*************************************************************************/
     grunt.registerTask('stageLocal', function() {
         grunt.config.set('copy.stageLocal', {
-            // Note: Copying whole build folder, since files may depend on
-            // other files e.g. clipforce.css may reference images/fonts etc
-            // don't want to have to manually stick them in here each time
             src: [ 'build/**' ],
             dest: 'stageLocal/files/',
             flatten: false,
@@ -193,10 +190,10 @@ module.exports = function(grunt) {
         grunt.task.run('antdeploy:foo');
     });
     var profiles = {
-        greg: {
-            user: 'gpascale@clip.sbx',
-            pass: 'qaz12345',
-            serverurl: 'https://test.salesforce.com'
+        exmample: {
+            user: 'YOUR EMAIL',
+            pass: 'YOUR PASSWORD',
+            serverurl: 'YOUR ORG - e.g. https://test.salesforce.com'
         },
     };
 

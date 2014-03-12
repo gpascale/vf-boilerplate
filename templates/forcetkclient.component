@@ -37,7 +37,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         client.instanceUrl = window.location.origin;
         client.proxyUrl = null;
         client.baseUrl = window.location.protocol + '//' + window.location.hostname;
-        var namespace = 'clipforce';
+        var namespace = '##PROJECT_NAME##';
         var pageName = '{!$CurrentPage.Name}';
         if (pageName.indexOf(namespace + '__') == 0) {
             client.namespace = namespace;

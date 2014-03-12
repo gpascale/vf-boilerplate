@@ -30,6 +30,8 @@ sed -e $repl ./templates/.gitignore > ./.gitignore
 sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
+cp ./templates/HelloWorld.js ./src/js/
+cp ./templates/HelloWorld.less ./src/less/
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
 cp ./templates/extJs/*.js ./resources/js/
 # TODO copy over the models

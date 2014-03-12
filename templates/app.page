@@ -1,14 +1,7 @@
 <apex:page >
 
-    <script>
-        window.Clipforce = window.Clipforce || {};
-        window.Clipforce.config = {
-            resourceUrl: '{!URLFOR($Resource.##PROJECT_NAME##)}'
-        };
-    </script>
-
-    <apex:includeScript value="{!URLFOR($Resource.clipforcezip, '/js/##PROJECT_NAME##.js')}" />
-    <apex:stylesheet value="{!URLFOR($Resource.clipforcezip, '/css/##PROJECT_NAME##.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.##PROJECT_NAME##, '/js/##PROJECT_NAME##.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.##PROJECT_NAME##, '/css/##PROJECT_NAME##.css')}" />
     <c:ForceTkClient></c:ForceTkClient>
 
     <div id="container"></div>
