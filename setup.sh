@@ -17,6 +17,7 @@ mkdir ./src/apex/objects
 mkdir ./src/apex/layouts
 mkdir ./src/apex/triggers
 mkdir ./src/apex/components
+mkdir ./src/templates
 mkdir ./stageLocal
 mkdir ./apexBuildTemplates
 mkdir ./resources
@@ -31,8 +32,8 @@ sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
 sed -e $repl ./templates/forcetkclient.component > ./src/apex/components/forcetkclient.component
-cp ./templates/HelloWorld.js ./src/js/
-cp ./templates/HelloWorld.less ./src/less/
+cp ./templates/HelloWorld.js "./src/js/$1.js"
+cp ./templates/HelloWorld.less "./src/less/$1.less"
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
 cp ./templates/extJs/*.js ./resources/js/
 # TODO copy over the models
