@@ -127,15 +127,16 @@ module.exports = function(grunt) {
     /*************************************************************************/
     grunt.registerTask('meta', function() {
         var templatesByType = {
-            classes: 'apexBuildTemplates/class-meta.tmpl',
-            components: 'apexBuildTemplates/component-meta.tmpl',
-            pages: 'apexBuildTemplates/page-meta.tmpl',
-            staticresources: 'apexBuildTemplates/resource-meta.tmpl',
-            triggers: 'apexBuildTemplates/trigger-meta.tmpl'
+            classes: 'buildTemplates/class-meta.tmpl',
+            components: 'buildTemplates/component-meta.tmpl',
+            pages: 'buildTemplates/page-meta.tmpl',
+            staticresources: 'buildTemplates/resource-meta.tmpl',
+            triggers: 'buildTemplates/trigger-meta.tmpl',
+            documents: 'buildTemplates/documentFolder-meta.tmpl',
         };
         for (var type in templatesByType) {
-            var dir = 'build/package/' + type;
             try {
+                var dir = 'build/package/' + type;
                 var files = fs.readdirSync(dir);
                 console.log(type + " " + dir);
                 files.forEach(function(filename) {
@@ -146,8 +147,23 @@ module.exports = function(grunt) {
                         var outPath = dir + '/' + filename + '-meta.xml';
                         grunt.file.write(outPath, contents);
                     }
+                    // for documents, the "files" are actually "document folders"
+                    // which contain files. recursively descend into them.
+                    if (type == 'documents') {
+                        var docFolder = dir + '/' + filename;
+                        files = fs.readdirSync(docFolder);
+                        files.forEach(function(filename) {
+                            var template = grunt.file.read('buildTemplates/document-meta.tmpl');
+                            if (template) {
+                                var contents = _.template(template, { label: filename });
+                                var outPath = docFolder + '/' + filename + '-meta.xml';
+                                grunt.file.write(outPath, contents);
+                            }
+                        })
+                    }
                 });
-            } catch(e) { }
+            }
+            catch(e) { }
         };
     });
 

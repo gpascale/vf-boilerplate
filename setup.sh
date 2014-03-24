@@ -17,6 +17,9 @@ mkdir ./src/apex/objects
 mkdir ./src/apex/layouts
 mkdir ./src/apex/triggers
 mkdir ./src/apex/components
+mkdir ./src/apex/documents
+mkdir ./src/apex/documents/"$1"
+mkdir ./src/apex/tabs
 mkdir ./src/templates
 mkdir ./stageLocal
 mkdir ./apexBuildTemplates
