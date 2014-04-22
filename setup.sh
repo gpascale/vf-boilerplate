@@ -54,7 +54,7 @@ rm -rf templates
 echo "Welcome to $1. This is an empty README" > README.md
 rm setup.sh
 
-echo "Initializing new git project..."
-git init
-git add .
-git commit -m "Initial Commit"
+#echo "Initializing new git project..."
+#git init
+#git add .
+#git commit -m "Initial Commit"
