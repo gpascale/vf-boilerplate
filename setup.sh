@@ -25,6 +25,7 @@ mkdir ./stageLocal
 mkdir ./apexBuildTemplates
 mkdir ./resources
 mkdir ./resources/js
+mkdir ./resources/images
 
 echo "Copying code, markup and CSS boilerplate..."
 repl="s/##PROJECT_NAME##/${PROJECT_NAME}/g"
@@ -32,6 +33,7 @@ sed -e $repl ./templates/package.json > ./package.json
 sed -e $repl ./templates/Gruntfile.js > ./Gruntfile.js
 sed -e $repl ./templates/.gitignore > ./.gitignore
 sed -e $repl ./templates/app.page > "./src/apex/pages/$1.page"
+sed -e $repl ./templates/app.tab > "./src/apex/tabs/$1.tab"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
 sed -e $repl ./templates/forcetkclient.component > ./src/apex/components/forcetkclient.component
@@ -39,6 +41,8 @@ cp ./templates/HelloWorld.js "./src/js/$1.js"
 cp ./templates/HelloWorld.less "./src/less/$1.less"
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
 cp ./templates/extJs/*.js ./resources/js/
+cp ./templates/*.png ./resource/images/
+cp ./templates/app_icon.png "./src/apex/documents/$1"
 # TODO copy over the models
 
 echo "Setting up dependencies from NPM..."

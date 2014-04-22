@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         other: {
             expand: true,
             cwd: 'src/apex',
-            src: '{pages,layouts,objects,classes,triggers,components}/*.{page,layout,object,cls,trigger,component}',
+            src: '{pages,layouts,objects,classes,triggers,components,tabs,documents}/**/*',
             dest: 'build/package'
         }
     });
@@ -198,7 +198,9 @@ module.exports = function(grunt) {
             staticresource: ['*'],
             apexpage: ['*'],
             layout: ['*'],
-            customobject: ['*']
+            customobject: ['*'],
+            customtab: ['*'],
+            documents: ['*']
         });
         var profileName = grunt.option('profile');
         if (!profileName)
