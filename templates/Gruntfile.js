@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         other: {
             expand: true,
             cwd: 'src/apex',
-            src: '{pages,layouts,objects,classes,triggers,components}/*.{page,layout,object,cls,trigger,component}',
+            src: '{pages,layouts,objects,classes,triggers,components,tabs,documents}/**/*',
             dest: 'build/package'
         }
     });
@@ -127,12 +127,12 @@ module.exports = function(grunt) {
     /*************************************************************************/
     grunt.registerTask('meta', function() {
         var templatesByType = {
-            classes: 'buildTemplates/class-meta.tmpl',
-            components: 'buildTemplates/component-meta.tmpl',
-            pages: 'buildTemplates/page-meta.tmpl',
-            staticresources: 'buildTemplates/resource-meta.tmpl',
-            triggers: 'buildTemplates/trigger-meta.tmpl',
-            documents: 'buildTemplates/documentFolder-meta.tmpl',
+            classes: 'apexBuildTemplates/class-meta.tmpl',
+            components: 'apexBuildTemplates/component-meta.tmpl',
+            pages: 'apexBuildTemplates/page-meta.tmpl',
+            staticresources: 'apexBuildTemplates/resource-meta.tmpl',
+            triggers: 'apexBuildTemplates/trigger-meta.tmpl',
+            documents: 'apexBuildTemplates/documentFolder-meta.tmpl',
         };
         for (var type in templatesByType) {
             try {
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
                         var docFolder = dir + '/' + filename;
                         files = fs.readdirSync(docFolder);
                         files.forEach(function(filename) {
-                            var template = grunt.file.read('buildTemplates/document-meta.tmpl');
+                            var template = grunt.file.read('apexBuildTemplates/document-meta.tmpl');
                             if (template) {
                                 var contents = _.template(template, { label: filename });
                                 var outPath = docFolder + '/' + filename + '-meta.xml';
@@ -198,7 +198,9 @@ module.exports = function(grunt) {
             staticresource: ['*'],
             apexpage: ['*'],
             layout: ['*'],
-            customobject: ['*']
+            customobject: ['*'],
+            customtab: ['*'],
+            documents: ['*']
         });
         var profileName = grunt.option('profile');
         if (!profileName)
