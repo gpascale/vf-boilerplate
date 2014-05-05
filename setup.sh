@@ -1,9 +1,20 @@
-if [[ $# -eq 0 ]] ; then
-    echo 'A name for your project is required'
-    exit 1
-fi
+usage()
+{
+cat << EOF
+
+Usage: $0 [PROJECTNAME]
+
+Run this script with a project name (required) to initialize your new project.
+
+EOF
+}
 
 PROJECT_NAME=$1
+if [[ -z $PROJECT_NAME ]]
+then
+     usage
+     exit 1
+fi
 
 #!/bin/sh
 echo "Creating necessary folders..."
@@ -37,7 +48,8 @@ sed -e $repl ./templates/app.tab > "./src/apex/tabs/$1.tab"
 sed -e $repl ./templates/stageLocal/manifest.json > ./stageLocal/manifest.json
 sed -e $repl ./templates/stageLocal/redirect.js > ./stageLocal/redirect.js
 sed -e $repl ./templates/forcetkclient.component > ./src/apex/components/forcetkclient.component
-cp ./templates/HelloWorld.js "./src/js/$1.js"
+sed -e $repl ./templates/HelloWorld.js > "./src/js/$1.js"
+sed -e $repl ./templates/hello.tmpl > "./src/templates/hello.tmpl"
 cp ./templates/HelloWorld.less "./src/less/$1.less"
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
 cp ./templates/extJs/*.js ./resources/js/
@@ -48,13 +60,7 @@ cp ./templates/app_icon.png "./src/apex/documents/$1"
 echo "Setting up dependencies from NPM..."
 npm install
 
-echo "Removing stuff you don't want..."
+echo "Removing git stuff (disassociating this folder from vf-boilerplate repo)."
 rm -rf .git
 rm -rf templates
-echo "Welcome to $1. This is an empty README" > README.md
 rm setup.sh
-
-#echo "Initializing new git project..."
-#git init
-#git add .
-#git commit -m "Initial Commit"

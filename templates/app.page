@@ -8,11 +8,10 @@
     <div id="container"></div>
 
     <script>
-
-    $(document).ready(function() {
-        console.log("Hello, world!");
-    });
-
+    // Store the user id to use in the example soql query done in ##PROJECT_NAME##.js. Apex variables 
+    // are only accessible in .page or .component files. JS files that you put in src/js are compiled and
+    // served as a static resource, so they bypass the Apex pipeline.
+    window.userId = "{!$User.Id}"; 
     </script>
 
 </apex:page>
