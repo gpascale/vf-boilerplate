@@ -4,7 +4,7 @@ Basic boilerplate for a VisualForce project using a grunt build system
 
 1. Clone this repository, but give it a custom name - the name you want to give your project
 ```bash
-git clone
+git clone https://github.com/gpascale/vf-boilerplate.git *MyNewProject*
 ```
 2. run ./setup.sh project_name   e.g. "./setup.sh myNewProject"
 3. Once the script has completed, modify Gruntfile.js, search for "example" and modify the user login and password
