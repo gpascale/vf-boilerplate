@@ -2,7 +2,10 @@ Basic boilerplate for a VisualForce project using a grunt build system
 
 ###Installation
 
-1. Copy the contents of this project into a new folder
+1. Clone this repository, but give it a custom name - the name you want to give your project
+```bash
+git clone
+```
 2. run ./setup.sh project_name   e.g. "./setup.sh myNewProject"
 3. Once the script has completed, modify Gruntfile.js, search for "example" and modify the user login and password
 4. run "grunt watch --profile=example" this will deploy to salesforce
