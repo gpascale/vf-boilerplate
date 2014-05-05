@@ -64,3 +64,4 @@ echo "Removing git stuff (disassociating this folder from vf-boilerplate repo)."
 rm -rf .git
 rm -rf templates
 rm setup.sh
+rm README.md
