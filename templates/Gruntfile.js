@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         staticresources: {
             expand: true,
             cwd: 'resources',
-            src: 'images/**/*',
+            src: '**/*',
             dest: 'build/intermediates/staticresources'
         },
         other: {
@@ -82,12 +82,10 @@ module.exports = function(grunt) {
         },
         extJs: {
             src: [ 
-                'resources/js/jquery-1.10.2.js',
-                'resources/js/underscore.js',
-                'resources/js/backbone.js',
-                'resources/js/backbone.marionette.min.js',
-                'resources/js/forcetkdetails.js',
-                'resources/js/*.js' 
+                'src/ext/js/jquery-1.10.2.js',
+                'src/ext/js/underscore.js',
+                'src/ext/js/forcetkdetails.js',
+                'src/ext/js/*.js' 
             ],
             dest: 'build/intermediates/staticresources/js/##PROJECT_NAME##.external.js'
         }

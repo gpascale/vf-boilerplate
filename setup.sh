@@ -20,6 +20,7 @@ fi
 echo "Creating necessary folders..."
 mkdir ./src
 mkdir ./src/js
+mkdir ./src/ext/js
 mkdir ./src/less
 mkdir ./src/apex
 mkdir ./src/apex/pages
@@ -35,8 +36,6 @@ mkdir ./src/templates
 mkdir ./stageLocal
 mkdir ./apexBuildTemplates
 mkdir ./resources
-mkdir ./resources/js
-mkdir ./resources/images
 
 echo "Copying code, markup and CSS boilerplate..."
 repl="s/##PROJECT_NAME##/${PROJECT_NAME}/g"
@@ -52,8 +51,8 @@ sed -e $repl ./templates/HelloWorld.js > "./src/js/$1.js"
 sed -e $repl ./templates/hello.tmpl > "./src/templates/hello.tmpl"
 cp ./templates/HelloWorld.less "./src/less/$1.less"
 cp ./templates/apexBuildTemplates/* ./apexBuildTemplates/
-cp ./templates/extJs/*.js ./resources/js/
-cp ./templates/*.png ./resource/images/
+cp ./templates/extJs/*.js ./src/ext/js/
+cp ./templates/*.png ./resources/
 cp ./templates/app_icon.png "./src/apex/documents/$1"
 # TODO copy over the models
 
