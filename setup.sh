@@ -20,7 +20,7 @@ fi
 echo "Creating necessary folders..."
 mkdir ./src
 mkdir ./src/js
-mkdir ./src/ext/js
+mkdir -p ./src/ext/js
 mkdir ./src/less
 mkdir ./src/apex
 mkdir ./src/apex/pages
