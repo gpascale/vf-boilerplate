@@ -222,20 +222,35 @@ module.exports = function(grunt) {
     // Watch
     /*************************************************************************/
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.config('watch', {
-        local: {
-            files: ['src/js/**/*', 'src/less/**/*', 'src/templates/**/*',
-                    'Gruntfile.js'],
-            tasks: ['clean', 'build']
-        },
-        apex: {
-            files: ['src/apex/**/*', 'resources/**/*'],
-            tasks: ['clean', 'build', 'deploy'],
-            options: {
-                atBegin: true
+
+    if (grunt.option('alwaysdeploy')) {
+        grunt.config('watch', {
+            all: {
+                files: ['src/apex/**/*', 'resources/**/*', 'src/js/**/*', 'src/less/**/*', 
+                        'src/templates/**/*', 'Gruntfile.js'],
+                tasks: ['clean', 'build', 'deploy'],
+                options: {
+                    atBegin: true
+                }
             }
-        }
-    });
+        });
+    }
+    else {
+        grunt.config('watch', {
+            local: {
+                files: ['src/js/**/*', 'src/less/**/*', 'src/templates/**/*',
+                        'Gruntfile.js'],
+                tasks: ['clean', 'build']
+            },
+            apex: {
+                files: ['src/apex/**/*', 'resources/**/*'],
+                tasks: ['clean', 'build', 'deploy'],
+                options: {
+                    atBegin: true
+                }
+            }
+        });
+    }
 
     /*************************************************************************/
     /*************************************************************************/
